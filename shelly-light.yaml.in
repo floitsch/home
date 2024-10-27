@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://toit.io/schemas/artemis/pod-specification/v1.json
+
+$schema: https://toit.io/schemas/artemis/pod-specification/v1.json
+name: shelly-light
+sdk-version: v2.0.0-alpha.163
+artemis-version: v0.25.0
+max-offline: 0s
+firmware-envelope: esp32-ota-1c0000
+connections:
+  - type: wifi
+    ssid: @SHELLY_LIGHT_WLAN_SSID@
+    password: @SHELLY_LIGHT_WLAN_PW@
+containers: {}

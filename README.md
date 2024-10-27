@@ -1,2 +1,3 @@
-# home-shelly
-Shelly code
+# Shelly
+
+Repository for my shelly devices.
