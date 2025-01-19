@@ -10,7 +10,7 @@ import monitor
 main:
   relay1 := gpio.Pin --output 13
   relay1.set 1
-  relay2 := gpio.Pin --output 14
+  relay2 := gpio.Pin --output 12
   relay2.set 1
   latch := monitor.Latch
   // Keep running forever.
