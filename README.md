@@ -1,3 +1,3 @@
-# Shelly
+# Home
 
-Repository for my shelly devices.
+Repository for my IoT devices at home.
