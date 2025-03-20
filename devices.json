@@ -1,8 +1,14 @@
 {
   "402d56a8-9d9f-596e-82ef-fca2726ada9b": {
-    "name": "shelly-living"
+    "name": "shelly-living",
+    "group": "shelly-living"
+  },
+  "64d0406d-d67f-52ef-9268-f7b511c097c9": {
+    "name": "hp-plug",
+    "group": "hp-plug"
   },
   "d21a8b61-3f40-5cf6-ad6a-cc37f97523d9": {
-    "name": "shelly-kitchen"
+    "name": "shelly-kitchen",
+    "group": "shelly-kitchen"
   }
 }

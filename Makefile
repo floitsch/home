@@ -1,19 +1,37 @@
 .ONESHELL:
 SHELL := /bin/bash
 
+.PHONY: all
 all:
 
-shelly-light.yaml: shelly-light.yaml.in
+%.yaml: %.yaml.in
 	@
 	chmod +w $@
-	if [ -z "$(SHELLY_LIGHT_WLAN_SSID)" ]; then echo "SHELLY_LIGHT_WLAN_SSID is not set"; exit 1; fi
-	if [ -z "$(SHELLY_LIGHT_WLAN_PW)" ]; then echo "SHELLY_LIGHT_WLAN_PW is not set"; exit 1; fi
+	if [ -z "$(WLAN_SSID)" ]; then echo "WLAN_SSID is not set"; exit 1; fi
+	if [ -z "$(WLAN_PW)" ]; then echo "WLAN_PW is not set"; exit 1; fi
 	sed \
-		-e 's/@SHELLY_LIGHT_WLAN_SSID@/$(SHELLY_LIGHT_WLAN_SSID)/' \
-		-e 's/@SHELLY_LIGHT_WLAN_PW@/$(SHELLY_LIGHT_WLAN_PW)/' \
+		-e 's/@WLAN_SSID@/$(WLAN_SSID)/' \
+		-e 's/@WLAN_PW@/$(WLAN_PW)/' \
 		$< > $@
 	chmod a-w $@
 
-upload: shelly-light.yaml
+.PHONY: upload
+upload: upload-shelly upload-hp-plug
+
+.PHONY: upload-hp-plug
+upload-hp-plug: home-base.yaml
+	@echo "Uploading hp-plug pod"
+	@artemis pod upload hp-plug.yaml
+
+.PHONY: upload-shelly
+upload-shelly: upload-shelly-kitchen upload-shelly-living
+
+.PHONY: upload-shelly-kitchen
+upload-shelly-kitchen: home-base.yaml
 	@echo "Uploading shelly-light pod"
-	@artemis pod upload shelly-light.yaml
+	@artemis pod upload shelly-light-kitchen.yaml
+
+.PHONY: upload-shelly-living
+upload-shelly-living: home-base.yaml
+	@echo "Uploading shelly-light pod"
+	@artemis pod upload shelly-light-living.yaml

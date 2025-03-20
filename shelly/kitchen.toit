@@ -8,10 +8,21 @@ import gpio
 import monitor
 
 main:
-  relay1 := gpio.Pin --output 13
-  relay1.set 1
-  relay2 := gpio.Pin --output 12
+  // Plug is always on (for now).
+  relay2 := gpio.Pin --output 13
   relay2.set 1
-  latch := monitor.Latch
-  // Keep running forever.
-  latch.get
+
+  state := 0
+  relay1 := gpio.Pin --output 12
+  relay1.set state
+
+  switch1 := gpio.Pin --input 5
+  current := switch1.get
+  while true:
+    next := 1 - current
+    switch1.wait-for next
+    state = 1 - state
+    relay1.set state
+    // Debounce
+    sleep --ms=100
+    current = next

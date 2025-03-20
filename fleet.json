@@ -4,6 +4,15 @@
   "groups": {
     "default": {
       "pod": "shelly-light@latest"
+    },
+    "hp-plug": {
+      "pod": "hp-plug@latest"
+    },
+    "shelly-kitchen": {
+      "pod": "shelly-light@latest"
+    },
+    "shelly-living": {
+      "pod": "shelly-light@latest"
     }
   },
   "broker": "Artemis",

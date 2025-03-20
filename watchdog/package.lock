@@ -1,0 +1,15 @@
+sdk: ^2.0.0-alpha.150
+prefixes:
+  certificate-roots: toit-cert-roots
+  http: pkg-http
+packages:
+  pkg-http:
+    url: github.com/toitlang/pkg-http
+    name: http
+    version: 2.9.0
+    hash: ed6e198259c578154de830dc492821fdb5a40c7a
+  toit-cert-roots:
+    url: github.com/toitware/toit-cert-roots
+    name: certificate-roots
+    version: 1.10.0
+    hash: 1445c4a6cae47689674ae02c5f1dc03660f1df8c
