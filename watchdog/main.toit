@@ -17,8 +17,8 @@ main:
   certificate-roots.install-common-trusted-roots
   task::
     while true:
-      catch --trace: check-health
       sleep (Duration --m=10)
+      catch --trace: check-health
 
   while true:
     catch --trace: run-server
