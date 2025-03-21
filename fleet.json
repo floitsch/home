@@ -9,10 +9,10 @@
       "pod": "hp-plug@latest"
     },
     "shelly-kitchen": {
-      "pod": "shelly-light@latest"
+      "pod": "shelly-light-kitchen@latest"
     },
     "shelly-living": {
-      "pod": "shelly-light@latest"
+      "pod": "shelly-light-living@latest"
     }
   },
   "broker": "Artemis",
