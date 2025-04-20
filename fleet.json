@@ -5,6 +5,9 @@
     "default": {
       "pod": "shelly-light@latest"
     },
+    "bell": {
+      "pod": "bell@latest"
+    },
     "hp-plug": {
       "pod": "hp-plug@latest"
     },

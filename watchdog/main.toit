@@ -7,6 +7,8 @@ import http
 import gpio
 import net
 
+RETRIES ::= 5
+
 reset-count := 0
 
 relay-pin := gpio.Pin 2 --output
@@ -29,12 +31,15 @@ check-health:
   client/http.Client? := null
   try:
     client = http.Client network
-    response := client.get --uri="https://sign.toit.io"
-    if response.status-code != 200:
-      print "Failed to connect to Toit server"
-      reset-hp
-    else:
-      print "Health check succeeded"
+    for i := 0; i < RETRIES; i++:
+      response := client.get --uri="https://sign.toit.io"
+      if response.status-code == 200:
+        print "Health check succeeded"
+        return
+      print "Health check failed, retrying..."
+      sleep --ms=(1_000 * i)
+    // We failed $RETRIES time.
+    reset-hp
   finally:
     if client: client.close
     network.close

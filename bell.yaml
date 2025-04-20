@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://toit.io/schemas/artemis/pod-specification/v1.json
+
+$schema: https://toit.io/schemas/artemis/pod-specification/v1.json
+name: bell
+extends: [home-base.yaml]
+max-offline: 24h
+containers:
+  bell:
+    git: "https://github.com/floitsch/bell.git"
+    branch: main
+    entrypoint: ./main.toit
+    triggers:
+      - boot
+      - install
+      - interval: 3s
