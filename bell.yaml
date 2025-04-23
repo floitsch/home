@@ -3,6 +3,8 @@
 $schema: https://toit.io/schemas/artemis/pod-specification/v1.json
 name: bell
 extends: [home-base.yaml]
+firmware-envelope: esp32-no-ble
+partitions: esp32-ota-1c0000
 max-offline: 24h
 containers:
   bell:
