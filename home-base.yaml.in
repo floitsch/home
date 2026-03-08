@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://toit.io/schemas/artemis/pod-specification/v1.json
 
 $schema: https://toit.io/schemas/artemis/pod-specification/v1.json
-sdk-version: v2.0.0-alpha.176
-artemis-version: v0.29.1
-max-offline: 0s
+sdk-version: v2.0.0-alpha.190
+artemis-version: v0.33.0
+max-offline: 24h
 firmware-envelope: esp32-ota-1c0000
 connections:
   - type: wifi
